@@ -1,4 +1,4 @@
-$(document).ready(function () {
+jQuery(document).ready(function ($) {
 
     //Responsive table start
 
@@ -56,7 +56,15 @@ $(document).ready(function () {
     //Responsive table end
 
 
+/*
+    var thHead = $('#table thead tr');
 
+
+    function GenerateHtml() {
+        console.log('Generated');
+    }
+
+    console.log();*/
 
 
 

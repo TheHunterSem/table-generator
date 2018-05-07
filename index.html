@@ -3,51 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
     <link rel="stylesheet" href="css/table.css">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/main.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
-<div class="table-responsive-vertical shadow-z-1">
+<div class="wrapper">
 
-    <table id="table" class="table table-mc-light-blue">
-        <thead>
-        <tr>
-            <th>Header1</th>
-            <th>Header2</th>
-            <th>Header3</th>
-            <th>Header4</th>
-            <th>Header5</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td data-title="Header1">text</td>
-            <td data-title="Header2">text</td>
-            <td data-title="Header3">text</td>
-            <td data-title="Header4">text</td>
-            <td data-title="Header5">text</td>
-        </tr>
-        <tr>
-            <td data-title="Header1">text</td>
-            <td data-title="Header2">text</td>
-            <td data-title="Header3">text</td>
-            <td data-title="Header4">text</td>
-            <td data-title="Header5">text</td>
-        </tr>
-        <tr>
-            <td data-title="Header1">text</td>
-            <td data-title="Header2">text</td>
-            <td data-title="Header3">text</td>
-            <td data-title="Header4">text</td>
-            <td data-title="Header5">text</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="table-wrapper">
+        <div class="table-responsive-vertical shadow-z-1">
+
+            <table id="table" class="table table-mc-light-blue">
+
+                <thead>
+                <tr>
+                    <th>Header1</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td data-title="Header1">text</td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
 </div>
 
+<div id="generated_html_wrapper" class="generated_html_wrapper">
+    <div class="generated_html_content">
+        <p id="lol_text"></p>
+        <button type="button" class="html_generator_close" onclick="ClearGenerateHtml()"><i class="material-icons">close</i></button>
+    </div>
+</div>
+
+<button type="button" class="html_generator" onclick="GenerateHtml()">Generate HTML</button>
+
+<script>
+    function GenerateHtml() {
+        var html = $('.table-wrapper').html();
+        $('#lol_text').text(html);
+        $('#generated_html_wrapper').fadeIn(300);
+    }
+
+    function ClearGenerateHtml() {
+        $('#generated_html_wrapper').fadeOut(300);
+        setTimeout(function() {
+            $('#lol_text').text('');
+        }, 300);
+    }
+</script>
+
+
+<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
