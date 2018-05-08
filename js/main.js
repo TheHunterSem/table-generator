@@ -62,11 +62,10 @@ jQuery(document).ready(function ($) {
     var removeBtnRow = $('#remove_row');
 
     var theadercell = $('#table thead tr');
-    var colcell = $('#table tbody tr');
 
     $(removeBtnCell).on('click', function () {
         $(theadercell).find('th:last').remove();
-        $(colcell).find('td:last').remove();
+        $('#table tbody tr').find('td:last').remove();
     });
 
     $(addBtnCell).on('click', function () {
@@ -98,7 +97,6 @@ jQuery(document).ready(function ($) {
 
         });
 
-        // var tdheaderIndex = $(colcell).find('td').index();
     });
 
 
