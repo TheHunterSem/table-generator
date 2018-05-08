@@ -100,4 +100,10 @@ jQuery(document).ready(function ($) {
     });
 
 
+   $('#table tbody').on('click','td',function () {
+       var test = prompt("Тест", '');
+       $(this).text(test);
+   });
+
+
 });
