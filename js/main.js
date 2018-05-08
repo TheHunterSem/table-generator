@@ -95,7 +95,7 @@ jQuery(document).ready(function ($) {
         $('#table tbody tr td').each(function () {
 
             if ($(this).index() === thheaderIndex) {
-                $(this).attr('data-title', thheaderIndex);
+                $(this).attr('data-title', text);
             }
 
         });
