@@ -88,6 +88,9 @@ jQuery(document).ready(function ($) {
         var thheaderIndex = $(this).index();
         console.log(thheaderIndex);
 
+        var text = prompt("Input the text:", '');
+        $(this).text(text);
+
 
         $('#table tbody tr td').each(function () {
 
@@ -101,8 +104,8 @@ jQuery(document).ready(function ($) {
 
 
    $('#table tbody').on('click','td',function () {
-       var test = prompt("Тест", '');
-       $(this).text(test);
+       var text = prompt("Input the text:", '');
+       $(this).text(text);
    });
 
 
