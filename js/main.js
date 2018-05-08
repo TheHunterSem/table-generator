@@ -5,44 +5,44 @@ jQuery(document).ready(function ($) {
     var table = $('.table');
 
     // Table bordered
-    $('#table-bordered').change(function() {
-        var value = $( this ).val();
+    $('#table-bordered').change(function () {
+        var value = $(this).val();
         table.removeClass('table-bordered').addClass(value);
     });
 
     // Table striped
-    $('#table-striped').change(function() {
-        var value = $( this ).val();
+    $('#table-striped').change(function () {
+        var value = $(this).val();
         table.removeClass('table-striped').addClass(value);
     });
 
     // Table hover
-    $('#table-hover').change(function() {
-        var value = $( this ).val();
+    $('#table-hover').change(function () {
+        var value = $(this).val();
         table.removeClass('table-hover').addClass(value);
     });
 
     // Table color
-    $('#table-color').change(function() {
+    $('#table-color').change(function () {
         var value = $(this).val();
         table.removeClass(/^table-mc-/).addClass(value);
     });
 
-    (function(removeClass) {
+    (function (removeClass) {
 
-        jQuery.fn.removeClass = function( value ) {
-            if ( value && typeof value.test === "function" ) {
-                for ( var i = 0, l = this.length; i < l; i++ ) {
+        jQuery.fn.removeClass = function (value) {
+            if (value && typeof value.test === "function") {
+                for (var i = 0, l = this.length; i < l; i++) {
                     var elem = this[i];
-                    if ( elem.nodeType === 1 && elem.className ) {
-                        var classNames = elem.className.split( /\s+/ );
+                    if (elem.nodeType === 1 && elem.className) {
+                        var classNames = elem.className.split(/\s+/);
 
-                        for ( var n = classNames.length; n--; ) {
-                            if ( value.test(classNames[n]) ) {
+                        for (var n = classNames.length; n--;) {
+                            if (value.test(classNames[n])) {
                                 classNames.splice(n, 1);
                             }
                         }
-                        elem.className = jQuery.trim( classNames.join(" ") );
+                        elem.className = jQuery.trim(classNames.join(" "));
                     }
                 }
             } else {
@@ -56,16 +56,50 @@ jQuery(document).ready(function ($) {
     //Responsive table end
 
 
-/*
-    var thHead = $('#table thead tr');
+    var addBtnCell = $('#add_cell');
+    var removeBtnCell = $('#remove_cell');
+    var addBtnRow = $('#add_row');
+    var removeBtnRow = $('#remove_row');
+
+    var theadercell = $('#table thead tr');
+    var colcell = $('#table tbody tr');
+
+    $(removeBtnCell).on('click', function () {
+        $(theadercell).find('th:last').remove();
+        $(colcell).find('td:last').remove();
+    });
+
+    $(addBtnCell).on('click', function () {
+        $(theadercell).append('<th></th>');
+        $('#table tbody tr').each(function () {
+            $(this).append('<td></td>');
+        });
+    });
+
+    $(addBtnRow).on('click', function () {
+        $('#table tbody tr:last').clone().appendTo('#table tbody');
+    });
+
+    $(removeBtnRow).on('click', function () {
+        $('#table tbody').find('tr:last').remove();
+    });
+
+    $('#table thead tr').on('click', 'th', function () {
+
+        var thheaderIndex = $(this).index();
+        console.log(thheaderIndex);
 
 
-    function GenerateHtml() {
-        console.log('Generated');
-    }
+        $('#table tbody tr td').each(function () {
 
-    console.log();*/
+            if ($(this).index() === thheaderIndex) {
+                $(this).attr('data-title', thheaderIndex);
+            }
 
+        });
+
+        // var tdheaderIndex = $(colcell).find('td').index();
+    });
 
 
 });

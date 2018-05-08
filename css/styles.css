@@ -17,6 +17,13 @@ button {
     cursor: pointer;
 }
 
+.button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
 .wrapper {
     display: block;
     max-width: 1280px;
@@ -33,13 +40,10 @@ body .html_generator {
     max-width: 160px;
     width: 100%;
     padding: 15px;
-    cursor: pointer;
     background-color: #0D47A1;
-    border: none;
     color: #fff;
     font-size: 14px;
     font-weight: 600;
-    outline: none;
 }
 
 body .generated_html_wrapper {
@@ -66,10 +70,6 @@ body .generated_html_wrapper {
 }
 
 .generated_html_wrapper .generated_html_content .html_generator_close {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    background-color: transparent;
     color: #fff;
     line-height: 40px;
     height: 40px;
@@ -87,4 +87,29 @@ body .generated_html_wrapper {
     padding: 0;
     font-weight: 600;
     font-size: 28px;
+}
+
+.table-wrapper {
+    position: relative;
+}
+
+.table-wrapper .buttons-block {
+    position: absolute;
+    top: 0;
+    right: -40px;
+}
+
+.table-wrapper .buttons-block .button,
+.table-wrapper .buttons-block-row .button {
+    display: block;
+}
+
+.table-wrapper .buttons-block .add_cell,
+.table-wrapper .buttons-block-row .add_row {
+    color: #0D47A1;
+}
+
+.table-wrapper .buttons-block .remove_cell,
+.table-wrapper .buttons-block-row .remove_row {
+    color: #e53935;
 }

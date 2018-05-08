@@ -16,39 +16,55 @@
 <div class="wrapper">
 
     <div class="table-wrapper">
-        <div class="table-responsive-vertical shadow-z-1">
 
-            <table id="table" class="table table-mc-light-blue">
+        <div class="table-wrapper-content">
 
-                <thead>
-                <tr>
-                    <th>Header1</th>
-                </tr>
-                </thead>
+            <div class="table-responsive-vertical shadow-z-1">
 
-                <tbody>
-                <tr>
-                    <td data-title="Header1">text</td>
-                </tr>
-                </tbody>
+                <table id="table" class="table table-mc-light-blue">
+                    <thead>
+                    <tr>
 
-            </table>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
+
+        <div class="buttons-block">
+            <button id="add_cell" class="button add_cell" title="Add new cell"><i class="material-icons">add_circle</i></button>
+            <button id="remove_cell" class="button remove_cell" title="Remove cell"><i class="material-icons">remove_circle</i></button>
+        </div>
+
+        <div class="buttons-block-row">
+            <button id="add_row" class="button add_row" title="Add new row"><i class="material-icons">add_circle</i></button>
+            <button id="remove_row" class="button remove_row" title="Remove row"><i class="material-icons">remove_circle</i></button>
+        </div>
+
     </div>
+
 </div>
 
 <div id="generated_html_wrapper" class="generated_html_wrapper">
     <div class="generated_html_content">
         <p id="lol_text"></p>
-        <button type="button" class="html_generator_close" onclick="ClearGenerateHtml()"><i class="material-icons">close</i></button>
+        <button type="button" class="html_generator_close button" onclick="ClearGenerateHtml()"><i class="material-icons">close</i></button>
     </div>
 </div>
 
-<button type="button" class="html_generator" onclick="GenerateHtml()">Generate HTML</button>
+<button type="button" class="html_generator button" onclick="GenerateHtml()">Generate HTML</button>
+
+
 
 <script>
     function GenerateHtml() {
-        var html = $('.table-wrapper').html();
+        var html = $('.table-wrapper-content').html();
         $('#lol_text').text(html);
         $('#generated_html_wrapper').fadeIn(300);
     }
